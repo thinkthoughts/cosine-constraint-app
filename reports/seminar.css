@@ -108,6 +108,8 @@
       font-size: clamp(2.3rem, 5vw, 3.9rem);
       margin-bottom: 0.8rem;
         color: var(--headline);
+        
+    text-shadow: 0 0 12px rgba(250, 204, 21, 0.25);
     }
 
     h2 {
