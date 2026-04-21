@@ -41,6 +41,40 @@
     a:hover {
       text-decoration: underline;
     }
+    .share {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#copyBtn {
+  border: 1px solid #ccc;
+  background: transparent;
+  color: inherit;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#copyBtn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  #copyBtn:hover {
+    background: rgba(255,255,255,0.08);
+  }
+}
+
+.qr img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
   </style>
 </head>
 <body>
@@ -65,6 +99,23 @@
   <a href="/reports/26_04_21_PH_omega_categorical_CSPs.html">
     → seminar report: PH & ω-Categorical CSPs (Constraint Satisfaction Problems) (2026-04-21)
   </a>
+<script>
+  const url = window.location.origin;
 
+  document.getElementById("copyBtn").onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      const btn = document.getElementById("copyBtn");
+      btn.textContent = "✓ copied";
+      setTimeout(() => (btn.textContent = "🔗 copy link"), 1500);
+    } catch {
+      alert("Copy failed");
+    }
+  };
+
+  document.getElementById("qrImg").src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+    encodeURIComponent(url);
+</script>
 </body>
 </html>
