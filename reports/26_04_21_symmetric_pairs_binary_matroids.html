@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Symmetric Pairs & Binary Matroids — 2026-04-21</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --link: #7aa2ff;
+      --border: #222222;
+      --card: #111111;
+      --card2: #161616;
+      --accent: #9ad1ff;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --text: #111111;
+        --muted: #666666;
+        --link: #0a58ca;
+        --border: #e5e5e5;
+        --card: #f7f7f7;
+        --card2: #fbfbfb;
+        --accent: #0a58ca;
+      }
+    }
+
+    html {
+      color-scheme: dark light;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin-bottom: 0.35rem;
+      font-size: 2rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .nav {
+      margin-top: 0.75rem;
+      font-size: 0.98rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      margin: 1.25rem 0;
+    }
+
+    blockquote {
+      margin: 1rem 0;
+      padding: 0.9rem 1rem;
+      border-left: 4px solid var(--accent);
+      background: var(--card2);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-weight: 700;
+    }
+
+    ul, ol {
+      padding-left: 1.3rem;
+    }
+
+    pre {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.45rem 0.8rem;
+      background: var(--card2);
+      font-size: 0.95rem;
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Symmetric Pairs &amp; Binary Matroids</h1>
+    <div class="meta">Seminar report · 2026-04-21</div>
+    <div class="nav">
+      <a href="/">home</a>
+      ·
+      <a href="https://github.com/thinkthoughts/cosine-constraint-lab" target="_blank" rel="noopener noreferrer">cosine-constraint-lab</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Speaker’s claim</h2>
+    <blockquote>
+      “A pair (g,k) of Lie algebras is a symmetric pair if k is the set of fixed points
+      of an automorphism of g of order 2. We will show that when g and k are simply
+      laced Lie algebras of equal rank, the pair gives rise to combinatorial structures
+      whose numerical invariants can be predicted in terms of matroids that are
+      representable over the field with two elements.”
+    </blockquote>
+    <p><strong>Joint work with:</strong> Tianyuan Xu (University of Richmond)</p>
+  </section>
+
+  <section>
+    <h2>Background</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Definition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Symmetric pair</strong></td>
+          <td>(g, k) where k = Fix(σ) for an involution σ on g</td>
+        </tr>
+        <tr>
+          <td><strong>Simply laced</strong></td>
+          <td>ADE types, with all roots the same length</td>
+        </tr>
+        <tr>
+          <td><strong>Equal rank</strong></td>
+          <td>rank(g) = rank(k)</td>
+        </tr>
+        <tr>
+          <td><strong>Binary matroid</strong></td>
+          <td>A matroid representable over GF(2)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Initial comprehension summary</h2>
+    <div class="pill-row">
+      <div class="pill">Angle: ~7°</div>
+      <div class="pill">Hydration: ~92%</div>
+      <div class="pill">Verdict: ✅ ACCEPT (VC)</div>
+    </div>
+
+    <p>
+      The notebook frames this as a well-anchored seminar claim: classical symmetric-pair
+      theory provides the base, the simply-laced and equal-rank conditions narrow the domain,
+      and the new ingredient is the connection to binary matroids.
+    </p>
+  </section>
+
+  <section>
+    <h2>Constraint dimensions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Constraint</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>C1</strong></td>
+          <td>Anchored to symmetric pair theory (Helgason)</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <td><strong>C2</strong></td>
+          <td>Anchored to simply laced Lie algebras (ADE)</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <td><strong>C3</strong></td>
+          <td>Specific domain: equal rank condition</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <td><strong>C4</strong></td>
+          <td>Novelty: connection to binary matroids</td>
+          <td>0.9</td>
+        </tr>
+        <tr>
+          <td><strong>C5</strong></td>
+          <td>Construction provided (combinatorial structures)</td>
+          <td>0.85</td>
+        </tr>
+        <tr>
+          <td><strong>C6</strong></td>
+          <td>Collaboration acknowledged</td>
+          <td>1.0</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Triplet phase mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Π⁽⁰⁾ expand</strong></td>
+          <td>Classical symmetric pair theory (Helgason, 1960s)</td>
+        </tr>
+        <tr>
+          <td><strong>Π⁽¹⁾ extend</strong></td>
+          <td>Simply laced + equal rank restriction</td>
+        </tr>
+        <tr>
+          <td><strong>Π⁽²⁾ resist</strong></td>
+          <td>Testing the connection to matroids</td>
+        </tr>
+        <tr>
+          <td><strong>Π⁽³⁾ synthesis</strong></td>
+          <td>New combinatorial structures + GF(2) representability</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Peer-review summary</h2>
+    <pre>OVERALL VERDICT: ACCEPT (VC/GOS)
+Hydration: 92% | Angle: ~7°
+
+STRENGTHS
+• Classical anchoring (Helgason, symmetric pairs)
+• Clear domain restriction (simply laced, equal rank)
+• Novel connection to binary matroids
+• Joint work with Tianyuan Xu acknowledged
+
+SUGGESTIONS
+• Clarify which ADE types yield which matroids
+• Provide an explicit example (e.g. A_n, D_n, E_6, E_7, E_8)</pre>
+  </section>
+
+  <section>
+    <h2>Why this looks promising</h2>
+    <ol>
+      <li>It starts from an established theory rather than from vague analogy.</li>
+      <li>It states a concrete restricted setting: simply laced Lie algebras of equal rank.</li>
+      <li>It proposes a specific combinatorial target: binary matroids over GF(2).</li>
+      <li>It signals where follow-up detail would help: explicit ADE-to-matroid examples.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>To add next</h2>
+    <p class="placeholder">
+      Add a seminar photo here, then any handwritten notes, questions for the speaker,
+      or links to papers/slides.
+    </p>
+  </section>
+</body>
+</html>
