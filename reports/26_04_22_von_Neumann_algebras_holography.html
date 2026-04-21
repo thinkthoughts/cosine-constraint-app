@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>von Neumann Algebras in Holography — 2026-04-22</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="seminar.css">
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>von Neumann Algebras in Holography</h1>
+      <div class="meta">Seminar report · 2026-04-22 · Mudassir Moosa (CU Boulder Physics)</div>
+
+      <div class="share">
+        <button id="copyBtn">🔗 copy link</button>
+        <div class="qr">
+          <img id="qrImg" alt="QR code">
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/">home</a>
+
+        <span class="sep">·</span>
+
+        <a href="https://colab.research.google.com/github/thinkthoughts/cosine-constraint-lab/blob/main/seminars/2026_04_22_von_Neumann_algebras_holography.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 4h16v16H4z" opacity="0.2"/>
+            <path d="M9 8l6 4-6 4z"/>
+          </svg>
+          notebook
+        </a>
+
+        <span class="sep">·</span>
+
+        <a href="https://github.com/thinkthoughts/cosine-constraint-lab"
+           target="_blank" rel="noopener noreferrer">
+          cosine-constraint-lab
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+      <blockquote>
+        “The AdS/CFT correspondence establishes a duality between a gravitational theory in Anti-de Sitter (AdS) spacetime and a conformal quantum field theory on the boundary. This has led to the notion that spacetime is emergent, but how it emerges is not fully understood. Using von Neumann algebras, I consider a conformal Generalized Free Field theory dual to a local scalar field in AdS₂ and explore modular flow and modular conjugation of time-interval algebras. These algebras satisfy Holographic Algebraic Properties. Conversely, the existence of such properties in any quantum system implies a local QFT in AdS₂ spacetime — explaining emergence of local spacetime in a simple setup.”
+      </blockquote>
+      <p><strong>Speaker:</strong> Mudassir Moosa, CU Boulder Physics</p>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AdS/CFT correspondence</strong></td>
+            <td>Duality between AdS gravity and a boundary conformal field theory.</td>
+          </tr>
+          <tr>
+            <td><strong>von Neumann algebra</strong></td>
+            <td>Algebra of bounded operators on Hilbert space, closed under adjoint and weak limits.</td>
+          </tr>
+          <tr>
+            <td><strong>Modular flow / Tomita-Takesaki theory</strong></td>
+            <td>One-parameter automorphism structure associated to a von Neumann algebra and a cyclic separating vector.</td>
+          </tr>
+          <tr>
+            <td><strong>Generalized Free Field (GFF)</strong></td>
+            <td>Gaussian-type quantum field theory used here as the boundary dual.</td>
+          </tr>
+          <tr>
+            <td><strong>AdS₂</strong></td>
+            <td>Two-dimensional Anti-de Sitter spacetime.</td>
+          </tr>
+          <tr>
+            <td><strong>Holographic Algebraic Properties</strong></td>
+            <td>Specific algebraic conditions characterizing the AdS₂ duality setup in the talk.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>The structure</h2>
+      <pre>Forward direction (AdS₂ → QFT):
+ Local scalar field in AdS₂ → Generalized Free Field on boundary
+ → Time-interval algebras
+ → Holographic Algebraic Properties
+
+Converse direction (Algebra → Spacetime):
+ Holographic Algebraic Properties in any quantum system
+ → Local QFT in AdS₂ spacetime
+ → Spacetime emergence explained</pre>
+    </section>
+
+    <section>
+      <h2>Initial comprehension summary</h2>
+      <div class="pill-row">
+        <div class="pill">Angle: ~5–6°</div>
+        <div class="pill">Hydration: ~95%</div>
+        <div class="pill">Verdict ✅ ACCEPT (VC/GOS)</div>
+      </div>
+
+      <p>
+        This looks exceptionally strong because the problem is stated clearly, the setup is specific,
+        the technical tools are deep, and the notebook emphasizes that both directions are proven:
+        not only AdS₂ implies the algebraic properties, but those properties also force AdS₂ local QFT
+        in this simple setup.
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraint dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Constraint</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>C1</strong></td>
+            <td>Anchored to AdS/CFT (Maldacena 1997)</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C2</strong></td>
+            <td>Specific setup: AdS₂ + Generalized Free Field</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C3</strong></td>
+            <td>Technical tool: von Neumann algebras</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C4</strong></td>
+            <td>Problem clearly stated (emergence not understood)</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C5</strong></td>
+            <td>Forward direction proven (AdS₂ → properties)</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C6</strong></td>
+            <td>Converse direction proven (properties → AdS₂)</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C7</strong></td>
+            <td>Novelty: explains emergence in simple setup</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C8</strong></td>
+            <td>Speaker + affiliation</td>
+            <td>1.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Triplet phase mapping</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Π⁽⁰⁾ expand</strong></td>
+            <td>AdS/CFT correspondence — foundational duality</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽¹⁾ extend</strong></td>
+            <td>von Neumann algebras + Tomita-Takesaki theory</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽²⁾ resist</strong></td>
+            <td>Testing emergence — forward direction (AdS₂ → properties)</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽³⁾ synthesis</strong></td>
+            <td>Converse direction (properties → AdS₂) explaining emergence</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Peer-review summary</h2>
+      <pre>OVERALL VERDICT: ACCEPT (VC/GOS)
+Hydration: 95% | Angle: ~5–6°
+
+STRENGTHS
+• Clear problem statement: emergence of spacetime is not fully understood
+• Specific, tractable setup: AdS₂ + Generalized Free Field
+• Strong technical foundation: von Neumann algebras
+• Both directions proven: forward + converse
+• Converse is especially strong: necessity, not just sufficiency
+• Explains emergence in a simple, rigorous setup
+
+SUGGESTIONS
+• Discuss generalization to higher dimensions (AdS₃, AdS₄)
+• Connect to other emergence approaches (tensor networks, etc.)</pre>
+    </section>
+
+    <section>
+      <h2>Why this looks exceptionally strong</h2>
+      <ol>
+        <li>The converse theorem is stronger than a one-way construction: it makes the algebraic properties force the spacetime structure.</li>
+        <li>The problem is foundational rather than just technical.</li>
+        <li>The setup is simple enough to feel tractable while still using serious mathematical tools.</li>
+        <li>The talk appears to explain not only that emergence happens, but why it happens in this setting.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>For corrections or additions text Dan (303.350.8939)</h2>
+      <p class="placeholder">
+        Add seminar photo, other notes, or one diagram for the forward/converse directions here.
+      </p>
+    </section>
+  </main>
+
+  <script src="seminar.js" defer></script>
+</body>
+</html>
