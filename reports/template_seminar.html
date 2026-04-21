@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>[TITLE] — [DATE]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="seminar.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>[TITLE]</h1>
+      <div class="meta">Seminar report · [DATE] · [SPEAKER / AFFILIATION]</div>
+
+      <div class="share">
+        <button id="copyBtn" type="button">🔗 copy link</button>
+        <div class="qr">
+          <img id="qrImg" alt="QR code">
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/">home</a>
+
+        <span class="sep">·</span>
+
+        <a href="[COLAB_LINK]"
+           target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 4h16v16H4z" opacity="0.2"></path>
+            <path d="M9 8l6 4-6 4z"></path>
+          </svg>
+          notebook
+        </a>
+
+        <span class="sep">·</span>
+
+        <a href="https://github.com/thinkthoughts/cosine-constraint-lab"
+           target="_blank" rel="noopener noreferrer">
+          cosine-constraint-lab
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+      <blockquote>
+        [PASTE SEMINAR CLAIM HERE]
+      </blockquote>
+      <p><strong>Speaker:</strong> [NAME, AFFILIATION]</p>
+      <p><strong>Notes:</strong> [optional host / collaborators / context]</p>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>[Concept]</strong></td>
+            <td>[Definition, including math like \( i\partial_t u = -\Delta u + V(x)u \) if needed]</td>
+          </tr>
+          <tr>
+            <td><strong>[Concept]</strong></td>
+            <td>[Definition]</td>
+          </tr>
+          <tr>
+            <td><strong>[Concept]</strong></td>
+            <td>[Definition]</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>The structure</h2>
+      <p>[Optional short overview paragraph.]</p>
+
+      <p><strong>[Optional label]:</strong></p>
+      <p>\[
+        [DISPLAY_MATH]
+      \]</p>
+
+      <p>
+        [Optional explanatory sentence with inline math like \( a^2+b^2=c^2 \).]
+      </p>
+
+      <ol>
+        <li>[Step / extension / result]</li>
+        <li>[Step / extension / result]</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Initial comprehension summary</h2>
+      <div class="pill-row">
+        <div class="pill">Angle: ~[X]°</div>
+        <div class="pill">Hydration: ~[X]%</div>
+        <div class="pill">Verdict [VC / IA / VC/GOS / ?]</div>
+      </div>
+
+      <p>
+        [Short 2–4 sentence summary of what makes the seminar clear, novel, grounded, partial, strong, etc.]
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraint dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Constraint</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>C1</strong></td>
+            <td>[constraint]</td>
+            <td>[score]</td>
+          </tr>
+          <tr>
+            <td><strong>C2</strong></td>
+            <td>[constraint]</td>
+            <td>[score]</td>
+          </tr>
+          <tr>
+            <td><strong>C3</strong></td>
+            <td>[constraint]</td>
+            <td>[score]</td>
+          </tr>
+          <tr>
+            <td><strong>C4</strong></td>
+            <td>[constraint]</td>
+            <td>[score]</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Triplet phase mapping</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Π⁽⁰⁾ expand</strong></td>
+            <td>[description]</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽¹⁾ extend</strong></td>
+            <td>[description]</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽²⁾ resist</strong></td>
+            <td>[description]</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽³⁾ synthesis</strong></td>
+            <td>[description]</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Peer-review summary</h2>
+      <pre>OVERALL VERDICT: [VC / IA / VC-GOS / ?]
+Hydration: [X]% | Angle: ~[X]°
+
+STRENGTHS
+• [bullet]
+• [bullet]
+• [bullet]
+
+SUGGESTIONS
+• [bullet]
+• [bullet]</pre>
+    </section>
+
+    <section>
+      <h2>[Why this looks strong / Why this needs clarification / Why this looks promising]</h2>
+      <ol>
+        <li>[point]</li>
+        <li>[point]</li>
+        <li>[point]</li>
+        <li>[point]</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>For corrections or additions text Dan (303.350.8939)</h2>
+      <p class="placeholder">
+        Add seminar photo, other notes, key figure, or follow-up questions here.
+      </p>
+    </section>
+  </main>
+
+  <script src="seminar.js" defer></script>
+</body>
+</html>
