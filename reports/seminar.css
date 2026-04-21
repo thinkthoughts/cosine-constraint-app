@@ -129,11 +129,15 @@
 .MathJax {
   overflow-x: auto;
 }
+}
 mjx-container {
   overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
 }
+
 mjx-container[display="true"] {
-  margin: 1.2rem 0;
+  margin: 1rem 0;
 }
 
     .meta {
