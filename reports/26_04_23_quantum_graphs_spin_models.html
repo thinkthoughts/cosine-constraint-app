@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quantum Graphs &amp; Spin Models — 2026-04-23</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="seminar.css">
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Quantum Graphs &amp; Spin Models</h1>
+      <div class="meta">Seminar report · 2026-04-23</div>
+
+      <div class="share">
+        <button id="copyBtn">🔗 copy link</button>
+        <div class="qr">
+          <img id="qrImg" alt="QR code">
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/">home</a>
+
+        <span class="sep">·</span>
+
+        <a href="https://colab.research.google.com/github/thinkthoughts/cosine-constraint-lab/blob/main/seminars/2026_04_23_quantum_graphs_spin_models.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 4h16v16H4z" opacity="0.2"/>
+            <path d="M9 8l6 4-6 4z"/>
+          </svg>
+          notebook
+        </a>
+
+        <span class="sep">·</span>
+
+        <a href="https://github.com/thinkthoughts/cosine-constraint-lab"
+           target="_blank" rel="noopener noreferrer">
+          cosine-constraint-lab
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+      <blockquote>
+        “Spin models for singly-generated Yang-Baxter planar algebras are known to be determined by certain highly-regular classical graphs such as the pentagon or the Higman-Sims graph, which are extremely rare. Examples of spin models include the Jones and Kauffman polynomials. We will discuss the notion of higher-regularity for quantum graphs and give new examples of non-classical graphs yielding spin models. Time allowing, we will discuss some applications to quantum groups, topology and quantum information.”
+      </blockquote>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Yang-Baxter equation</strong></td>
+            <td><code>R₁₂R₁₃R₂₃ = R₂₃R₁₃R₁₂</code></td>
+          </tr>
+          <tr>
+            <td><strong>Planar algebra</strong></td>
+            <td>Algebraic structure for planar tangles, following Jones.</td>
+          </tr>
+          <tr>
+            <td><strong>Spin model</strong></td>
+            <td>Assignment of complex numbers to vertices or edges satisfying Yang-Baxter-type constraints.</td>
+          </tr>
+          <tr>
+            <td><strong>Jones polynomial</strong></td>
+            <td>Knot invariant arising from Temperley-Lieb / planar-algebra methods.</td>
+          </tr>
+          <tr>
+            <td><strong>Higman-Sims graph</strong></td>
+            <td>Highly symmetric graph with 100 vertices and 3520 edges.</td>
+          </tr>
+          <tr>
+            <td><strong>Quantum graph</strong></td>
+            <td>Non-classical graph object with quantum symmetries.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Known rare graphs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Graph</th>
+            <th>Vertices</th>
+            <th>Properties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pentagon</strong></td>
+            <td>5</td>
+            <td>Cycle graph C₅, strongly regular</td>
+          </tr>
+          <tr>
+            <td><strong>Higman-Sims</strong></td>
+            <td>100</td>
+            <td>Strongly regular (100, 22, 0, 6)</td>
+          </tr>
+          <tr>
+            <td><strong>Hoffman-Singleton</strong></td>
+            <td>50</td>
+            <td>(50, 7, 0, 1), related to Moore graphs</td>
+          </tr>
+          <tr>
+            <td><strong>Clebsch graph</strong></td>
+            <td>16</td>
+            <td>(16, 5, 0, 2)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The notebook emphasizes that these graphs are rare, which makes the existence of new non-classical quantum-graph examples especially significant. :contentReference[oaicite:1]{index=1}
+      </p>
+    </section>
+
+    <section>
+      <h2>Initial comprehension summary</h2>
+      <div class="pill-row">
+        <div class="pill">Angle: ~6°</div>
+        <div class="pill">Hydration: ~94%</div>
+        <div class="pill">Verdict ✅ ACCEPT (VC/GOS)</div>
+      </div>
+
+      <p>
+        This seminar looks strong because it is anchored by multiple classical structures, gives concrete rare examples, and then states a clear novelty: higher-regularity for quantum graphs with new non-classical examples yielding spin models. The notebook rates it as exceptionally well-hydrated. :contentReference[oaicite:2]{index=2}
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraint dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Constraint</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>C1</strong></td>
+            <td>Anchored to Jones polynomial</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C2</strong></td>
+            <td>Anchored to Kauffman polynomial</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C3</strong></td>
+            <td>Yang-Baxter planar algebra context</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C4</strong></td>
+            <td>Known examples: pentagon graph</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C5</strong></td>
+            <td>Known examples: Higman-Sims graph</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C6</strong></td>
+            <td>Novelty: higher-regularity for quantum graphs</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C7</strong></td>
+            <td>New non-classical graph examples</td>
+            <td>0.9</td>
+          </tr>
+          <tr>
+            <td><strong>C8</strong></td>
+            <td>Applications: quantum groups, topology, quantum information</td>
+            <td>0.9</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Triplet phase mapping</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Π⁽⁰⁾ expand</strong></td>
+            <td>Jones polynomial, Kauffman polynomial, Yang-Baxter</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽¹⁾ extend</strong></td>
+            <td>Spin models tied to highly-regular classical graphs</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽²⁾ resist</strong></td>
+            <td>Pentagon and Higman-Sims as rare benchmark examples</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽³⁾ synthesis</strong></td>
+            <td>Higher-regularity quantum graphs and new non-classical examples</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The notebook’s summary line is that the talk moves from classical knot-theory anchors through rare graph examples to genuinely new quantum-graph constructions. :contentReference[oaicite:3]{index=3}
+      </p>
+    </section>
+
+    <section>
+      <h2>Peer-review summary</h2>
+      <pre>OVERALL VERDICT: ACCEPT (VC/GOS)
+Hydration: 94% | Angle: ~6°
+
+STRENGTHS
+• Multiple classical anchors (Jones, Kauffman, Yang-Baxter)
+• Concrete rare examples (pentagon, Higman-Sims)
+• Clear novelty: higher-regularity for quantum graphs
+• Broad applications (quantum groups, topology, quantum information)
+
+SUGGESTIONS
+• Show at least one explicit non-classical quantum graph
+• Clarify how higher-regularity differs from classical regularity</pre>
+    </section>
+
+    <section>
+      <h2>Why this looks strong</h2>
+      <ol>
+        <li>It has multiple classical anchors rather than relying on one abstract framework.</li>
+        <li>It uses concrete rare examples that make the problem legible.</li>
+        <li>It states the novelty precisely: higher-regularity for quantum graphs.</li>
+        <li>It points to applications across quantum groups, topology, and quantum information.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>For corrections or additions text Dan (303.350.8939)</h2>
+      <p class="placeholder">
+        Add seminar photo, other notes, or one explicit non-classical quantum graph example here.
+      </p>
+    </section>
+  </main>
+
+  <script src="seminar.js" defer></script>
+</body>
+</html>
