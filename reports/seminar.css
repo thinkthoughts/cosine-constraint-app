@@ -132,6 +132,34 @@
       font-size: 0.98rem;
       margin-bottom: 1.4rem;
     }
+.share {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+#copyBtn {
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text);
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#copyBtn:hover {
+  background: var(--surface);
+}
+
+.qr img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
 
    .nav {
   display: flex;
