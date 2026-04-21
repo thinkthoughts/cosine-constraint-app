@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Monoidal Categories &amp; Product Systems over N^k — 2026-04-23</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="seminar.css">
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Monoidal Categories &amp; Product Systems over N^k</h1>
+      <div class="meta">Seminar report · 2026-04-23</div>
+
+      <div class="share">
+        <button id="copyBtn">🔗 copy link</button>
+        <div class="qr">
+          <img id="qrImg" alt="QR code">
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/">home</a>
+
+        <span class="sep">·</span>
+
+        <a href="https://colab.research.google.com/github/thinkthoughts/cosine-constraint-lab/blob/main/seminars/2026_04_23_monoidal_categories_product_systems.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 4h16v16H4z" opacity="0.2"/>
+            <path d="M9 8l6 4-6 4z"/>
+          </svg>
+          notebook
+        </a>
+
+        <span class="sep">·</span>
+
+        <a href="https://github.com/thinkthoughts/cosine-constraint-lab"
+           target="_blank" rel="noopener noreferrer">
+          cosine-constraint-lab
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+      <blockquote>
+        “One approach to identifying the C*-algebra of a product system over N^k is to build a representation of it with the aim of applying the Gauge-Invariant Uniqueness theorem. The main problem is how to build the representation. This is complicated by the commutativity of N^k — so many balanced tensor-product correspondences are isomorphic. I'll show how an abstract categorical result of Fowler-Sims can be used to surmount this obstacle.”
+      </blockquote>
+      <p><strong>Joint work with:</strong> Valentin Deaconu, Menevse Eryuzlu Paulovicks, and S. Kaliszewski</p>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Product system</strong></td>
+            <td>Family of Hilbert bimodules over a semigroup, here \(N^k\).</td>
+          </tr>
+          <tr>
+            <td><strong>C*-algebra</strong></td>
+            <td>Banach algebra with involution satisfying the C* identity.</td>
+          </tr>
+          <tr>
+            <td><strong>Gauge-Invariant Uniqueness theorem</strong></td>
+            <td>Classical result used to identify C*-algebras of product systems.</td>
+          </tr>
+          <tr>
+            <td><strong>Balanced tensor-product</strong></td>
+            <td>Tensor product respecting the semigroup structure.</td>
+          </tr>
+          <tr>
+            <td><strong>Fowler-Sims result</strong></td>
+            <td>Abstract categorical theorem used here to construct representations.</td>
+          </tr>
+          <tr>
+            <td><strong>Monoidal category</strong></td>
+            <td>Category equipped with a tensor product and unit object.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>The obstacle</h2>
+      <p>
+        \(N^k\) is commutative, so many balanced tensor-product correspondences become isomorphic.
+        That makes representation-building non-trivial, even when the general identification strategy
+        via Gauge-Invariant Uniqueness is already known.
+      </p>
+    </section>
+
+    <section>
+      <h2>Initial comprehension summary</h2>
+      <div class="pill-row">
+        <div class="pill">Angle: ~6°</div>
+        <div class="pill">Hydration: ~93%</div>
+        <div class="pill">Verdict ✅ ACCEPT (VC/GOS)</div>
+      </div>
+
+      <p>
+        This seminar structure looks strong because the problem is clear, the classical anchors are explicit,
+        the domain is specific, and the novelty is focused: monoidal-category methods are used to get around
+        the commutativity obstacle in \(N^k\). The notebook treats it as exceptionally well-hydrated. :contentReference[oaicite:1]{index=1}
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraint dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Constraint</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>C1</strong></td>
+            <td>Anchored to Fowler-Sims result</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C2</strong></td>
+            <td>Anchored to Gauge-Invariant Uniqueness theorem</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C3</strong></td>
+            <td>Specific domain: product systems over \(N^k\)</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C4</strong></td>
+            <td>Problem clearly stated (commutativity obstacle)</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C5</strong></td>
+            <td>Novelty: monoidal categories to generate representations</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C6</strong></td>
+            <td>Construction provided (categorical method)</td>
+            <td>0.9</td>
+          </tr>
+          <tr>
+            <td><strong>C7</strong></td>
+            <td>Collaboration acknowledged</td>
+            <td>1.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Triplet phase mapping</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Π⁽⁰⁾ expand</strong></td>
+            <td>Classical C*-algebra theory and Gauge-Invariant Uniqueness</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽¹⁾ extend</strong></td>
+            <td>Product systems over \(N^k\), a commutative semigroup</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽²⁾ resist</strong></td>
+            <td>The obstacle: commutativity gives many isomorphic correspondences</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽³⁾ synthesis</strong></td>
+            <td>Fowler-Sims categorical result gives new representations</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Peer-review summary</h2>
+      <pre>OVERALL VERDICT: ACCEPT (VC/GOS)
+Hydration: 93% | Angle: ~6°
+
+STRENGTHS
+• Clear problem statement (commutativity obstacle)
+• Multiple classical anchors (Fowler-Sims, Gauge-Invariant)
+• Specific domain (product systems over N^k)
+• Novel categorical approach using monoidal categories
+• Strong collaboration (4 authors)
+
+SUGGESTIONS
+• Provide an explicit example for small k (e.g. N^2)
+• Show how the Fowler-Sims result applies concretely</pre>
+    </section>
+
+    <section>
+      <h2>Why this looks strong</h2>
+      <ol>
+        <li>The obstacle is stated plainly rather than hidden in jargon.</li>
+        <li>The talk is anchored by more than one classical theorem.</li>
+        <li>The novelty is narrow and precise: a categorical way to build the needed representations.</li>
+        <li>The domain is specific enough to make the contribution legible.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>For corrections or additions text Dan (303.350.8939)</h2>
+      <p class="placeholder">
+        Add seminar photo, other notes, or a small \(N^2\) example here.
+      </p>
+    </section>
+  </main>
+
+  <script src="seminar.js" defer></script>
+</body>
+</html>
