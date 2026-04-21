@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unique Continuation for Schrödinger Equations — 2026-04-24</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="seminar.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Unique Continuation for Schrödinger Equations</h1>
+      <div class="meta">Seminar report · 2026-04-24 · Xueying Yu (Oregon State University)</div>
+
+      <div class="share">
+        <button id="copyBtn" type="button">🔗 copy link</button>
+        <div class="qr">
+          <img id="qrImg" alt="QR code">
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/">home</a>
+
+        <span class="sep">·</span>
+
+        <a href="https://colab.research.google.com/github/thinkthoughts/cosine-constraint-lab/blob/main/seminars/2026_04_24_schrodinger_unique_continuation.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 4h16v16H4z" opacity="0.2"></path>
+            <path d="M9 8l6 4-6 4z"></path>
+          </svg>
+          notebook
+        </a>
+
+        <span class="sep">·</span>
+
+        <a href="https://github.com/thinkthoughts/cosine-constraint-lab"
+           target="_blank" rel="noopener noreferrer">
+          cosine-constraint-lab
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+      <blockquote>
+        “Unique continuation principles describe the propagation of zeros of solutions to PDEs.
+        Motivated by Hardy's uncertainty principle, Escauriaza, Kenig, Ponce, and Vega showed that
+        if a linear Schrödinger solution decays sufficiently fast at two different times, the solution
+        must be trivial. We extend these results to higher-order Schrödinger equations and
+        variable-coefficient Schrödinger equations.”
+      </blockquote>
+      <p><strong>Speaker:</strong> Xueying Yu, Oregon State University</p>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Unique continuation</strong></td>
+            <td>If a solution vanishes on a set, it must vanish on a larger set.</td>
+          </tr>
+          <tr>
+            <td><strong>Hardy’s uncertainty principle</strong></td>
+            <td>A function and its Fourier transform cannot both be sharply localized.</td>
+          </tr>
+          <tr>
+            <td><strong>Escauriaza-Kenig-Ponce-Vega (EKP-V)</strong></td>
+            <td>Classical unique continuation results for Schrödinger equations.</td>
+          </tr>
+          <tr>
+            <td><strong>Higher-order Schrödinger</strong></td>
+            <td>\( i\partial_t u = (-\Delta)^m u + V(x)u \) with \( m &gt; 1 \).</td>
+          </tr>
+          <tr>
+            <td><strong>Variable-coefficient Schrödinger</strong></td>
+            <td>\( i\partial_t u = -\nabla\!\cdot\!(A(x)\nabla u) + V(x)u \).</td>
+          </tr>
+          <tr>
+            <td><strong>Carleman estimates</strong></td>
+            <td>Weighted \(L^2\) estimates used to prove unique continuation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>The structure</h2>
+
+      <p><strong>Classical result (EKP-V):</strong></p>
+      <p>\[
+        i\partial_t u = -\Delta u + V(x)u
+      \]</p>
+
+      <p>
+        If
+        \[
+          |u(x,0)| \le Ce^{-a|x|^2}
+          \quad\text{and}\quad
+          |u(x,T)| \le Ce^{-a|x|^2},
+        \]
+        with \(a\) large enough, then
+        \[
+          u \equiv 0.
+        \]
+      </p>
+
+      <p><strong>Extensions in this talk:</strong></p>
+      <ol>
+        <li>\[
+          i\partial_t u = (-\Delta)^m u + V(x)u
+        \]</li>
+        <li>\[
+          i\partial_t u = -\nabla\!\cdot\!(A(x)\nabla u) + V(x)u
+        \]</li>
+      </ol>
+
+      <p>Same qualitative conclusion under appropriate decay conditions.</p>
+    </section>
+
+    <section>
+      <h2>Initial comprehension summary</h2>
+      <div class="pill-row">
+        <div class="pill">Angle: ~6–7°</div>
+        <div class="pill">Hydration: ~92%</div>
+        <div class="pill">Verdict ✅ ACCEPT (VC/GOS)</div>
+      </div>
+
+      <p>
+        This seminar looks strong because it starts from two classical anchors, states a well-defined
+        PDE problem, and then extends the result in two distinct directions: higher-order Schrödinger
+        and variable-coefficient Schrödinger. The motivation, extensions, and technical method are all explicit.
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraint dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Constraint</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>C1</strong></td>
+            <td>Anchored to Hardy’s uncertainty principle</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C2</strong></td>
+            <td>Anchored to EKP-V classical result</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C3</strong></td>
+            <td>Specific domain: higher-order Schrödinger</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C4</strong></td>
+            <td>Specific domain: variable-coefficient Schrödinger</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C5</strong></td>
+            <td>Problem clearly stated (unique continuation)</td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>C6</strong></td>
+            <td>Extension clearly stated</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td><strong>C7</strong></td>
+            <td>Construction provided (Carleman estimates)</td>
+            <td>0.9</td>
+          </tr>
+          <tr>
+            <td><strong>C8</strong></td>
+            <td>Speaker + affiliation</td>
+            <td>1.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Triplet phase mapping</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Π⁽⁰⁾ expand</strong></td>
+            <td>Hardy’s uncertainty principle and EKP-V classical results</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽¹⁾ extend</strong></td>
+            <td>Higher-order Schrödinger equations</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽²⁾ resist</strong></td>
+            <td>Variable-coefficient Schrödinger equations</td>
+          </tr>
+          <tr>
+            <td><strong>Π⁽³⁾ synthesis</strong></td>
+            <td>Unified extension of EKP-V to both models</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Peer-review summary</h2>
+      <pre>OVERALL VERDICT: ACCEPT (VC/GOS)
+Hydration: 92% | Angle: ~6–7°
+
+STRENGTHS
+• Clear motivation (Hardy + EKP-V classical results)
+• Two distinct extensions (higher-order + variable-coefficient)
+• Well-defined problem (unique continuation)
+• Technical method stated (Carleman estimates)
+
+SUGGESTIONS
+• Provide intuition for Carleman estimates in these new settings
+• Compare decay rates with classical case</pre>
+    </section>
+
+    <section>
+      <h2>Why this looks strong</h2>
+      <ol>
+        <li>It is anchored by two classical foundations rather than one.</li>
+        <li>It extends the theory in two specific directions, not just one.</li>
+        <li>The core problem is easy to state: propagation of zeros in PDE solutions.</li>
+        <li>The technical tool, Carleman estimates, is standard and recognizable in this area.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>For corrections or additions text Dan (303.350.8939)</h2>
+      <p class="placeholder">
+        Add seminar photo, other notes, or one intuitive Carleman-estimate remark here.
+      </p>
+    </section>
+  </main>
+
+  <script src="seminar.js" defer></script>
+</body>
+</html>
