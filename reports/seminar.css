@@ -126,6 +126,15 @@
       margin: 0 0 1rem;
       font-size: 1.04rem;
     }
+.MathJax {
+  overflow-x: auto;
+}
+mjx-container {
+  overflow-x: auto;
+}
+mjx-container[display="true"] {
+  margin: 1.2rem 0;
+}
 
     .meta {
       color: var(--subhead);
