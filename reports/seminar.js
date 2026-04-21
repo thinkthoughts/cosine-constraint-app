@@ -1,18 +1,28 @@
-const url = window.location.href;
+document.addEventListener("DOMContentLoaded", () => {
+  const copyBtn = document.getElementById("copyBtn");
+  const qrImg = document.getElementById("qrImg");
 
-  // Copy button
-  document.getElementById("copyBtn").onclick = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-      const btn = document.getElementById("copyBtn");
-      btn.textContent = "✓ copied";
-      setTimeout(() => (btn.textContent = "🔗 copy link"), 1500);
-    } catch {
-      alert("Copy failed");
-    }
-  };
+  const pageUrl = window.location.href;
 
-  // QR code (using free API)
-  document.getElementById("qrImg").src =
-    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
-    encodeURIComponent(url);
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(pageUrl);
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = "✓ copied";
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+        }, 1500);
+      } catch (err) {
+        console.error("Copy failed:", err);
+        alert("Copy failed");
+      }
+    });
+  }
+
+  if (qrImg) {
+    qrImg.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+      encodeURIComponent(pageUrl);
+  }
+});
