@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bombs and Flares: Magnetic Reconnection Across Solar Scales — 2026-04-23</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="seminar.css">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <h1>Bombs and Flares: Magnetic Reconnection Across Solar Scales</h1>
+
+      <div class="meta">
+        Seminar report · 2026-04-23 · João da Silva Santos (National Solar Observatory)
+      </div>
+
+      <div class="share">
+        <button id="copyBtn" type="button">🔗 copy link</button>
+        <div class="qr">
+          <img id="qrImg" alt="QR code">
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/">home</a>
+
+        <span class="sep">·</span>
+
+        <a href="https://colab.research.google.com/github/thinkthoughts/cosine-constraint-lab/blob/main/seminars/2026_04_23_bombs_flares_magnetic_reconnection_santos.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 4h16v16H4z" opacity="0.2"></path>
+            <path d="M9 8l6 4-6 4z"></path>
+          </svg>
+          notebook
+        </a>
+
+        <span class="sep">·</span>
+
+        <a href="https://github.com/thinkthoughts/cosine-constraint-lab"
+           target="_blank" rel="noopener noreferrer">
+          cosine-constraint-lab
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+
+      <blockquote>
+        “Magnetic reconnection is a fundamental plasma process governing energy release across solar scales, from Ellerman bombs to X-class flares. Recent observational and simulation advances suggest shared physical mechanisms across these regimes, with plasmoid instability, turbulence, DKIST observations, and future DKIST + ALMA measurements improving constraints on magnetic evolution and reconnection-driven heating.”
+      </blockquote>
+
+      <p><strong>Host:</strong> Mark Rast</p>
+      <p><strong>Location:</strong> JILA Auditorium</p>
+      <p><strong>Time:</strong> 10:00 a.m.</p>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Magnetic reconnection</strong></td>
+            <td>Reconfiguration of magnetic field lines converting magnetic energy into heat and kinetic energy.</td>
+          </tr>
+          <tr>
+            <td><strong>Ellerman bomb</strong></td>
+            <td>Small-scale transient brightening associated with reconnection in the lower solar atmosphere.</td>
+          </tr>
+          <tr>
+            <td><strong>X-class flare</strong></td>
+            <td>Highly energetic solar flare with large-scale magnetic energy release.</td>
+          </tr>
+          <tr>
+            <td><strong>Plasmoid instability</strong></td>
+            <td>Fragmentation of current sheets into magnetic islands, accelerating reconnection.</td>
+          </tr>
+          <tr>
+            <td><strong>Turbulence</strong></td>
+            <td>Multi-scale plasma motion enhancing reconnection rates.</td>
+          </tr>
+          <tr>
+            <td><strong>r-MHD</strong></td>
+            <td>Radiative magnetohydrodynamic simulations including plasma + radiation effects.</td>
+          </tr>
+          <tr>
+            <td><strong>DKIST</strong></td>
+            <td>High-resolution solar telescope resolving fine magnetic structures.</td>
+          </tr>
+          <tr>
+            <td><strong>ALMA</strong></td>
+            <td>Millimeter array for probing solar atmospheric structure and heating.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>The structure</h2>
+
+      <p><strong>Scale comparison:</strong></p>
+      <ul>
+        <li>Small-scale: Ellerman bombs</li>
+        <li>Large-scale: X-class flares</li>
+      </ul>
+
+      <p><strong>Key question:</strong></p>
+      <p>Is there a common reconnection mechanism across solar scales?</p>
+
+      <p><strong>Mechanisms:</strong></p>
+      <ul>
+        <li>Plasmoid instability</li>
+        <li>Turbulence</li>
+      </ul>
+
+      <p><strong>Tools:</strong></p>
+      <ul>
+        <li>Observations</li>
+        <li>r-MHD simulations</li>
+        <li>DKIST measurements</li>
+        <li>Future ALMA constraints</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Initial comprehension summary</h2>
+
+      <div class="pill-row">
+        <div class="pill">Angle: ~4–6°</div>
+        <div class="pill">Hydration: ~95%</div>
+        <div class="pill">Verdict ✅ ACCEPT (VC/GOS)</div>
+      </div>
+
+      <p>
+        This seminar is especially strong because it connects a fundamental plasma process to a clear cross-scale question,
+        while combining observations, simulations, and instrumentation. The physical target—reconnection-driven heating—
+        is explicit and measurable.
+      </p>
+    </section>
+
+    <section>
+      <h2>Constraint dimensions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Constraint</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>C1</strong></td><td>Anchored to magnetic reconnection physics</td><td>1.0</td></tr>
+          <tr><td><strong>C2</strong></td><td>Clear scale bridge (bombs ↔ flares)</td><td>1.0</td></tr>
+          <tr><td><strong>C3</strong></td><td>Mechanisms identified (plasmoid + turbulence)</td><td>1.0</td></tr>
+          <tr><td><strong>C4</strong></td><td>Observation + simulation combined</td><td>1.0</td></tr>
+          <tr><td><strong>C5</strong></td><td>DKIST observational constraint</td><td>1.0</td></tr>
+          <tr><td><strong>C6</strong></td><td>ALMA future extension</td><td>0.95</td></tr>
+          <tr><td><strong>C7</strong></td><td>Clear heating target</td><td>1.0</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Triplet phase mapping</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Π⁽⁰⁾ expand</strong></td><td>Magnetic reconnection as fundamental plasma process</td></tr>
+          <tr><td><strong>Π⁽¹⁾ extend</strong></td><td>Solar scale range (bombs → flares)</td></tr>
+          <tr><td><strong>Π⁽²⁾ resist</strong></td><td>Plasmoid instability + turbulence testing mechanism</td></tr>
+          <tr><td><strong>Π⁽³⁾ synthesis</strong></td><td>DKIST + ALMA constrain magnetic evolution and heating</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Peer-review summary</h2>
+
+      <pre>OVERALL VERDICT: ACCEPT (VC/GOS)
+Hydration: 95% | Angle: ~4–6°
+
+STRENGTHS
+• Clear physical mechanism
+• Strong cross-scale question
+• Observation + simulation integration
+• Direct instrument relevance (DKIST, ALMA)
+
+SUGGESTIONS
+• Add one explicit observational example
+• Clarify scale-dependent signatures</pre>
+    </section>
+
+    <section>
+      <h2>Why this looks strong</h2>
+
+      <ol>
+        <li>Starts from a fundamental plasma process.</li>
+        <li>Bridges clearly defined spatial scales.</li>
+        <li>Combines theory, simulation, and observation.</li>
+        <li>Targets measurable solar heating mechanisms.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>For corrections or additions text Dan (303.350.8939)</h2>
+      <p class="placeholder">
+        Add seminar photo, DKIST image, or reconnection example here.
+      </p>
+    </section>
+  </main>
+
+  <script src="seminar.js" defer></script>
+</body>
+</html>
