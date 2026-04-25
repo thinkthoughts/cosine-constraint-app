@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unique Continuation Constraint Pipeline — Schrödinger Equations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="After-seminar CGCS bridge note for Xueying Yu's talk on unique continuation for Schrödinger equations: two-time decay, Carleman weights, Hardy-type inequalities, contradiction, and zero solution.">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --ink: #0b1535;
+      --muted: #5c6478;
+      --line: #d8deee;
+      --paper: #ffffff;
+      --soft: #f5f7fb;
+      --blue: #1f5fd1;
+      --purple: #6f3bbf;
+      --green: #16895a;
+      --orange: #df6b1c;
+      --red: #bd352b;
+      --slate: #26313f;
+      --shadow: 0 18px 45px rgba(16, 24, 40, 0.10);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(111, 59, 191, 0.14), transparent 35rem),
+        radial-gradient(circle at top right, rgba(31, 95, 209, 0.12), transparent 32rem),
+        linear-gradient(180deg, #fbfcff 0%, #eef2f8 100%);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 28px 0 60px;
+    }
+
+    header.hero {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(216, 222, 238, 0.95);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(111, 59, 191, 0.22);
+      background: rgba(111, 59, 191, 0.08);
+      color: #4b248c;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(2.1rem, 4vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.32rem);
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0 0 22px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip, .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 8px 12px;
+      font-weight: 700;
+      color: #222b3c;
+      font-size: .93rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 210px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .share-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: 0 8px 22px rgba(16,24,40,.08);
+      text-align: center;
+    }
+
+    .qr img {
+      width: 158px;
+      height: 158px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 8px;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+      background: var(--ink);
+      color: white;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 800;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .nav a {
+      color: var(--ink);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 750;
+    }
+
+    section {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(16,24,40,.055);
+      padding: 26px;
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 900px;
+    }
+
+    blockquote {
+      margin: 16px 0 0;
+      padding: 18px 20px;
+      border-left: 6px solid var(--blue);
+      background: #f4f7ff;
+      border-radius: 16px;
+      color: #26313f;
+      font-size: 1.04rem;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stage {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      min-height: 176px;
+      background: linear-gradient(180deg, #fff 0%, #f7f9fe 100%);
+      position: relative;
+    }
+
+    .stage::after {
+      content: "→";
+      position: absolute;
+      right: -16px;
+      top: 42%;
+      transform: translateY(-50%);
+      font-size: 1.7rem;
+      color: var(--slate);
+      font-weight: 900;
+      z-index: 3;
+    }
+
+    .stage:last-child::after { content: ""; }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .stage h3 { margin: 0 0 6px; }
+    .stage p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .blue .num { background: var(--blue); }
+    .purple .num { background: var(--purple); }
+    .green .num { background: var(--green); }
+    .orange .num { background: var(--orange); }
+    .slate .num { background: var(--slate); }
+
+    .math-card {
+      border: 1px solid var(--line);
+      background: #fbfcff;
+      border-radius: 18px;
+      padding: 16px 18px;
+      overflow-x: auto;
+      margin: 14px 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f4fb;
+      color: #1d2940;
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .035em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .figure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(16,24,40,.045);
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+      background: #f8fafc;
+    }
+
+    figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: .93rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .wide { grid-column: 1 / -1; }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .score {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .score strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -.03em;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      background: #0b1535;
+      color: #eef4ff;
+      border-radius: 18px;
+      padding: 18px;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .note {
+      border-left: 6px solid var(--purple);
+      background: #f8f3ff;
+      padding: 16px 18px;
+      border-radius: 16px;
+      color: #36224f;
+    }
+
+    .footer-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      background: var(--ink);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .footer-card a { color: #b9d0ff; }
+
+    .small { font-size: .92rem; color: var(--muted); }
+    .footer-card .small { color: #cbd5ea; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .two-col, .figure-grid, .score-row {
+        grid-template-columns: 1fr;
+      }
+      .pipeline { grid-template-columns: 1fr; }
+      .stage::after {
+        content: "↓";
+        right: 22px;
+        top: auto;
+        bottom: -22px;
+      }
+      .stage:last-child::after { content: ""; }
+      .share-card { text-align: left; }
+      .qr img { width: 136px; height: 136px; }
+      .footer-card { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; padding: 0; }
+      header.hero, section { box-shadow: none; break-inside: avoid; }
+      .share-card, .nav, button { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">After-seminar report · lift5 CGCS · AB ↔ NOW</div>
+          <h1>Unique Continuation Constraint Pipeline</h1>
+          <p class="subtitle">
+            A max-CGCS bridge note for Schrödinger unique continuation:
+            two-time decay → Carleman weight → Hardy-type inequality → contradiction → zero solution.
+          </p>
+
+          <div class="meta">
+            <span class="chip">2026-04-24</span>
+            <span class="chip">Speaker: Xueying Yu · Oregon State University</span>
+            <span class="chip">Seminar: PDE / Analysis</span>
+            <span class="chip">Notebook 02: proof-aligned pipeline</span>
+          </div>
+
+          <nav class="nav" aria-label="Links">
+            <a href="/">home</a>
+            <a href="https://colab.research.google.com/github/thinkthoughts/cosine-constraint-lab/blob/main/seminars/2026_04_04_schrodinger_unique_continuations_v2_pipeline.ipynb" target="_blank" rel="noopener noreferrer">open Notebook 02 in Colab</a>
+            <a href="https://github.com/thinkthoughts/cosine-constraint-lab" target="_blank" rel="noopener noreferrer">cosine-constraint-lab</a>
+            <a href="#full-paper-next">full-paper next</a>
+          </nav>
+        </div>
+
+        <aside class="share-card">
+          <div class="small"><strong>Scan / share</strong><br>QR points to this page URL.</div>
+          <div class="qr">
+            <img id="qrImg" alt="QR code for this page">
+          </div>
+          <button id="copyBtn" type="button">copy page link</button>
+          <p id="copyStatus" class="small" aria-live="polite"></p>
+        </aside>
+      </div>
+    </header>
+
+    <section>
+      <h2>One-line theorem translation</h2>
+      <p class="lead">
+        If a Schrödinger solution decays sufficiently fast at two different times, then the only
+        solution consistent with the equation is the trivial solution:
+      </p>
+      <div class="math-card">
+        \[
+          u(x,t) \equiv 0.
+        \]
+      </div>
+      <p class="note">
+        AB accuracy: “45°,” “+5,” and “sister diagonal” are comprehension translations, not standard PDE theorem vocabulary.
+        Standard math remains the foundation; NOW language lifts comprehension.
+      </p>
+    </section>
+
+    <section>
+      <h2>Speaker’s claim</h2>
+      <blockquote>
+        “Unique continuation principles describe the propagation of zeros of solutions to PDEs.
+        Motivated by Hardy's uncertainty principle, Escauriaza, Kenig, Ponce, and Vega showed that
+        if a linear Schrödinger solution decays sufficiently fast at two different times, the solution
+        must be trivial. We extend these results to higher-order Schrödinger equations and
+        variable-coefficient Schrödinger equations.”
+      </blockquote>
+      <p><strong>Speaker:</strong> Xueying Yu, Oregon State University</p>
+    </section>
+
+    <section>
+      <h2>Pipeline diagram</h2>
+      <p class="lead">
+        The bridge note turns the seminar logic into a one-to-one pipeline: each standard proof step has
+        a NOW / lift5 CGCS translation.
+      </p>
+
+      <div class="pipeline" aria-label="Unique continuation pipeline">
+        <div class="stage blue">
+          <span class="num">1</span>
+          <h3>Decay</h3>
+          <p>Two-time smallness at \(t_1\) and \(t_2\). Candidate solution is tested twice.</p>
+        </div>
+        <div class="stage purple">
+          <span class="num">2</span>
+          <h3>Weight</h3>
+          <p>Carleman weight \(e^{\phi(x,t)}\) amplifies the small region.</p>
+        </div>
+        <div class="stage green">
+          <span class="num">3</span>
+          <h3>Hardy</h3>
+          <p>Hardy-type inequality blocks over-concentration without variation cost.</p>
+        </div>
+        <div class="stage orange">
+          <span class="num">4</span>
+          <h3>Contradiction</h3>
+          <p>Assuming \(u\neq0\) conflicts with decay + weight + PDE consistency.</p>
+        </div>
+        <div class="stage slate">
+          <span class="num">5</span>
+          <h3>Zero</h3>
+          <p>Only \(u\equiv0\) survives all constraints.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Best diagrams / figures to add to repo</h2>
+      <p class="lead">
+        Put these files in the after-seminar report folder. The page will render them automatically once the image
+        files are added.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="wide">
+          <img src="figures/uc_pipeline_v3_standard_vs_now.png"
+               alt="Standard vs NOW lift5 CGCS unique continuation pipeline diagram"
+               onerror="this.closest('figure').classList.add('missing'); this.replaceWith(Object.assign(document.createElement('div'), {className:'placeholder', innerHTML:'<strong>Missing image:</strong><br>figures/uc_pipeline_v3_standard_vs_now.png<br><br>Add the best Standard vs NOW/lift5 CGCS diagram here.'}))">
+          <figcaption>
+            Figure 1. Best hero diagram: Standard AB proof pipeline aligned with NOW / lift5 CGCS translation.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/step1_two_time_decay.png"
+               alt="Step 1 plot showing two-time decay"
+               onerror="this.closest('figure').classList.add('missing'); this.replaceWith(Object.assign(document.createElement('div'), {className:'placeholder', innerHTML:'<strong>Missing image:</strong><br>figures/step1_two_time_decay.png'}))">
+          <figcaption>
+            Step 1. Two-time decay: \(|u(x,t_1)|\) and \(|u(x,t_2)|\) are the sister-diagonal constraint inputs.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/step2_exponential_weight.png"
+               alt="Step 2 plot showing exponential weight amplifying decay"
+               onerror="this.closest('figure').classList.add('missing'); this.replaceWith(Object.assign(document.createElement('div'), {className:'placeholder', innerHTML:'<strong>Missing image:</strong><br>figures/step2_exponential_weight.png'}))">
+          <figcaption>
+            Step 2. Exponential / Carleman weight makes smallness visible.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/step3_hardy_variation_cost.png"
+               alt="Step 3 plot showing concentration and gradient cost"
+               onerror="this.closest('figure').classList.add('missing'); this.replaceWith(Object.assign(document.createElement('div'), {className:'placeholder', innerHTML:'<strong>Missing image:</strong><br>figures/step3_hardy_variation_cost.png'}))">
+          <figcaption>
+            Step 3. Hardy-type constraint: concentration must pay variation cost.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/step4_ab_now_alignment.png"
+               alt="CGCS local AB NOW alignment bar chart"
+               onerror="this.closest('figure').classList.add('missing'); this.replaceWith(Object.assign(document.createElement('div'), {className:'placeholder', innerHTML:'<strong>Missing image:</strong><br>figures/step4_ab_now_alignment.png'}))">
+          <figcaption>
+            Step 4. Local AB ↔ NOW alignment: each proof step remains above the max-CGCS target.
+          </figcaption>
+        </figure>
+      </div>
+
+      <style>
+        .placeholder {
+          min-height: 220px;
+          display: grid;
+          place-items: center;
+          text-align: center;
+          padding: 26px;
+          color: var(--muted);
+          background:
+            linear-gradient(135deg, rgba(31,95,209,.08), rgba(111,59,191,.10)),
+            #fff;
+        }
+      </style>
+    </section>
+
+    <section>
+      <h2>AB theorem anchor</h2>
+      <p class="lead">
+        The simplified classical model is:
+      </p>
+      <div class="math-card">
+        \[
+          i\partial_t u = -\Delta u + V(x)u.
+        \]
+      </div>
+      <p>
+        If the solution satisfies two fast-decay conditions,
+      </p>
+      <div class="math-card">
+        \[
+          |u(x,t_1)| \le C e^{-a|x|^2}
+          \quad\text{and}\quad
+          |u(x,t_2)| \le C e^{-a|x|^2},
+        \]
+      </div>
+      <p>
+        with \(a\) sufficiently large under the theorem’s hypotheses, then:
+      </p>
+      <div class="math-card">
+        \[
+          u(x,t) \equiv 0.
+        \]
+      </div>
+    </section>
+
+    <section>
+      <h2>Hardy / Carleman proof intuition</h2>
+      <div class="two-col">
+        <div>
+          <h3>Hardy-type constraint</h3>
+          <div class="math-card">
+            \[
+              \int_{\mathbb{R}^n} \frac{|u(x)|^2}{|x|^2}\,dx
+              \le C \int_{\mathbb{R}^n} |\nabla u(x)|^2\,dx.
+            \]
+          </div>
+          <p>
+            Entry-level translation: a function cannot become too concentrated or too sharply decayed
+            without paying a gradient / variation cost.
+          </p>
+        </div>
+
+        <div>
+          <h3>Carleman weight</h3>
+          <div class="math-card">
+            \[
+              v(x,t) = e^{\phi(x,t)}u(x,t).
+            \]
+          </div>
+          <p>
+            Entry-level translation: the weight magnifies the region where smallness matters,
+            turning decay into a strong estimate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>AB ↔ NOW alignment</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>AB / standard proof step</th>
+            <th>NOW / lift5 CGCS translation</th>
+            <th>Comprehension function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Decay at two times \(t_1,t_2\)</td>
+            <td>Two-time = sister diagonal constraint input</td>
+            <td>Test candidate solution twice</td>
+          </tr>
+          <tr>
+            <td>Carleman weight</td>
+            <td>Apply weight NOW</td>
+            <td>Make smallness visible</td>
+          </tr>
+          <tr>
+            <td>Hardy-type inequality</td>
+            <td>45° / +5 constraint gate</td>
+            <td>No over-concentration</td>
+          </tr>
+          <tr>
+            <td>Contradiction for \(u\neq0\)</td>
+            <td>Gate fails for non-zero</td>
+            <td>Exclude invalid candidate descriptions</td>
+          </tr>
+          <tr>
+            <td>Conclusion \(u\equiv0\)</td>
+            <td>Only zero aligns</td>
+            <td>Unique continuation confirmed</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>CGCS summary</h2>
+      <div class="score-row">
+        <div class="score">
+          <strong>0.92</strong>
+          Notebook 01 seminar analysis
+        </div>
+        <div class="score">
+          <strong>0.97</strong>
+          Notebook 02 proof pipeline
+        </div>
+        <div class="score">
+          <strong>0.98</strong>
+          HTML bridge with diagrams
+        </div>
+        <div class="score">
+          <strong>0.98+</strong>
+          Full repo + arXiv5867 paper
+        </div>
+      </div>
+      <p class="small">
+        Scores are internal CGCS comprehension estimates. They measure proof-structure alignment and reader accessibility,
+        not formal theorem novelty.
+      </p>
+    </section>
+
+    <section>
+      <h2>Glossary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Entry-level meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Solution</strong></td>
+            <td>A mathematical description that satisfies the equation.</td>
+          </tr>
+          <tr>
+            <td><strong>Trivial solution</strong></td>
+            <td>The zero solution: \(u(x,t)\equiv0\).</td>
+          </tr>
+          <tr>
+            <td><strong>Non-trivial solution</strong></td>
+            <td>Any solution that is not zero somewhere.</td>
+          </tr>
+          <tr>
+            <td><strong>Unique continuation</strong></td>
+            <td>Local vanishing or strong smallness can determine the global solution.</td>
+          </tr>
+          <tr>
+            <td><strong>Hardy-type inequality</strong></td>
+            <td>A constraint linking concentration and variation.</td>
+          </tr>
+          <tr>
+            <td><strong>Carleman estimate</strong></td>
+            <td>A weighted estimate used to prove unique continuation.</td>
+          </tr>
+          <tr>
+            <td><strong>45° / +5 / sister diagonal</strong></td>
+            <td>CGCS translation language for constraint-first comprehension.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="full-paper-next">
+      <h2>Before a dedicated repo / full paper</h2>
+      <p class="lead">
+        This page is an init after-seminar bridge. The dedicated repo can later turn this into an arXiv5867-ready
+        paper with theorem statements, assumptions, precise estimates, reproducible figures, and proof-chain notes.
+      </p>
+
+      <pre>unique-continuation-constraint-lab/
+  README.md
+  paper/
+    main.tex
+    references.bib
+    sections/
+      01_intro.tex
+      02_theorem_and_assumptions.tex
+      03_carleman_weights.tex
+      04_hardy_type_inequalities.tex
+      05_contradiction_chain.tex
+      06_cgcs_translation.tex
+  notebooks/
+    01_decay_weight_visualization.ipynb
+    02_hardy_gate_demo.ipynb
+    03_contradiction_pipeline.ipynb
+  src/
+    weights.py
+    hardy_demo.py
+    plotting.py
+  figures/
+    uc_pipeline_v3_standard_vs_now.png
+    step1_two_time_decay.png
+    step2_exponential_weight.png
+    step3_hardy_variation_cost.png
+    step4_ab_now_alignment.png
+  docs/
+    glossary.md
+    AB_NOW_alignment.md</pre>
+
+      <p>
+        Professor-share framing:
+      </p>
+      <blockquote>
+        This is a seminar bridge note translating the standard unique-continuation proof structure into
+        a visual constraint pipeline. It preserves the AB proof sequence while adding an explicit comprehension
+        layer for entry readers.
+      </blockquote>
+    </section>
+
+    <section class="footer-card">
+      <div>
+        <h2>Corrections / additions</h2>
+        <p>
+          This is an after-seminar comprehension bridge, not a replacement for the speaker’s paper or lecture notes.
+          Add exact theorem statements, assumptions, and references before circulating as a formal research note.
+        </p>
+        <p class="small">For corrections or additions: text Dan (303.350.8939).</p>
+      </div>
+      <div>
+        <span class="pill">Same truth · lifted clarity</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const pageUrl = window.location.href.split('#')[0];
+    const qrImg = document.getElementById('qrImg');
+    qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=" + encodeURIComponent(pageUrl);
+
+    const copyBtn = document.getElementById('copyBtn');
+    const copyStatus = document.getElementById('copyStatus');
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pageUrl);
+        copyStatus.textContent = "Copied.";
+      } catch (err) {
+        copyStatus.textContent = pageUrl;
+      }
+    });
+  </script>
+</body>
+</html>
