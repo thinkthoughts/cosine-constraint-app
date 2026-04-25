@@ -7,33 +7,37 @@
 
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --link: #0a58ca;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b0b0b;
-        --text: #eaeaea;
-        --link: #7aa2ff;
-      }
+      --bg: #0b0b0b;
+      --card: #121212;
+      --text: #eaeaea;
+      --muted: #a0a0a0;
+      --link: #7aa2ff;
+      --border: #222;
     }
 
     body {
       background: var(--bg);
       color: var(--text);
       font-family: system-ui, -apple-system, sans-serif;
-      max-width: 720px;
-      margin: 5rem auto;
-      padding: 0 1rem;
+      max-width: 780px;
+      margin: 4rem auto;
+      padding: 0 1.2rem;
       line-height: 1.6;
     }
 
+    h1 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
     a {
-      display: block;
-      margin: 1rem 0;
-      font-size: 1.1rem;
       color: var(--link);
       text-decoration: none;
     }
@@ -41,94 +45,159 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* FEATURE CARD */
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+      margin-top: 2rem;
+      transition: 0.2s ease;
+    }
+
+    .feature:hover {
+      border-color: var(--link);
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* LIST */
+    .list {
+      margin-top: 1.2rem;
+    }
+
+    .list a {
+      display: block;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-left: 0.4rem;
+    }
+
+    /* SHARE */
     .share {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-#copyBtn {
-  border: 1px solid #ccc;
-  background: transparent;
-  color: inherit;
-  padding: 0.45rem 0.75rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
+    #copyBtn {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: inherit;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
 
-#copyBtn:hover {
-  background: rgba(0,0,0,0.05);
-}
+    #copyBtn:hover {
+      background: rgba(255,255,255,0.06);
+    }
 
-@media (prefers-color-scheme: dark) {
-  #copyBtn:hover {
-    background: rgba(255,255,255,0.08);
-  }
-}
+    .qr img {
+      width: 90px;
+      height: 90px;
+      border: 1px solid var(--border);
+    }
 
-.qr img {
-  width: 90px;
-  height: 90px;
-  border-radius: 0;
-  border: 1px solid #ccc;
-}
   </style>
 </head>
 <body>
 
   <h1>cosine constraint</h1>
-  <div class="share">
-  <button id="copyBtn">🔗 copy link</button>
 
-  <div class="qr">
-    <img id="qrImg" alt="QR code">
+  <div class="share">
+    <button id="copyBtn">🔗 copy link</button>
+    <div class="qr">
+      <img id="qrImg" alt="QR code">
+    </div>
   </div>
-</div>
 
   <a href="https://github.com/thinkthoughts/cosine-constraint-lab" target="_blank">
     → cosine-constraint-lab (repo)
   </a>
-  
-  <h1>seminars (CU)</h1>
 
-<a href="/reports/26_04_24_schrodinger_unique_continuation.html">
-  → seminar report: unique continuation for Schrödinger equations (2026-04-24)
-</a> 
+  <!-- FEATURED PROJECT -->
+  <h2>latest project</h2>
 
-<a href="/reports/26_04_23_quantum_graphs_spin_models.html">
-  → seminar report: quantum graphs &amp; spin models (2026-04-23)
-</a>
-  
-<a href="/reports/26_04_23_monoidal_categories_product_systems.html">
-  → seminar report: monoidal categories &amp; product systems over N^k (2026-04-23)
-</a>
-  
-<a href="/reports/26_04_23_bombs_flares_magnetic_reconnection_santos.html">
-  → seminar report: bombs and flares: magnetic reconnection across solar scales (2026-04-23)
-</a>
-
-<a href="/reports/26_04_22_rhombohedral_graphene_ju.html">
-  → seminar report: emergent quantum phenomena in graphene (ju) (2026-04-22)
-</a>
-
-<a href="/reports/26_04_22_von_Neumann_algebras_holography.html">
-  → seminar report: von Neumann algebras in holography (2026-04-22)
-</a>
-  
-  <a href="/reports/26_04_21_biohybrid_jellyfish_xu.html">
-  → seminar report: biohybrid jellyfish (xu) (2026-04-21)
-</a>
-
-  <a href="/reports/26_04_21_PH_omega_categorical_CSPs.html">
-    → seminar report: PH & ω-Categorical CSPs (Constraint Satisfaction Problems) (2026-04-21)
+  <a class="feature" href="/colab/2026_04_24_schrodinger_unique_continuation_pipeline.html">
+    <div class="feature-title">
+      unique continuation for Schrödinger equations
+    </div>
+    <div class="feature-desc">
+      constraint-based pipeline · visualization + notebooks · signal survives constraint
+    </div>
   </a>
-  
-  <a href="/reports/26_04_21_symmetric_pairs_binary_matroids.html">
-    → seminar report: symmetric pairs & binary matroids (2026-04-21)
-  </a>
+
+  <!-- SEMINARS -->
+  <h2>seminar reports (CU)</h2>
+
+  <div class="list">
+
+    <a href="/reports/26_04_24_schrodinger_unique_continuation.html">
+      unique continuation for Schrödinger equations
+      <span class="date">(2026-04-24)</span>
+    </a>
+
+    <a href="/reports/26_04_23_quantum_graphs_spin_models.html">
+      quantum graphs & spin models
+      <span class="date">(2026-04-23)</span>
+    </a>
+
+    <a href="/reports/26_04_23_monoidal_categories_product_systems.html">
+      monoidal categories & product systems over N^k
+      <span class="date">(2026-04-23)</span>
+    </a>
+
+    <a href="/reports/26_04_23_bombs_flares_magnetic_reconnection_santos.html">
+      bombs and flares: magnetic reconnection across solar scales
+      <span class="date">(2026-04-23)</span>
+    </a>
+
+    <a href="/reports/26_04_22_rhombohedral_graphene_ju.html">
+      emergent quantum phenomena in graphene (ju)
+      <span class="date">(2026-04-22)</span>
+    </a>
+
+    <a href="/reports/26_04_22_von_Neumann_algebras_holography.html">
+      von Neumann algebras in holography
+      <span class="date">(2026-04-22)</span>
+    </a>
+
+    <a href="/reports/26_04_21_biohybrid_jellyfish_xu.html">
+      biohybrid jellyfish (xu)
+      <span class="date">(2026-04-21)</span>
+    </a>
+
+    <a href="/reports/26_04_21_PH_omega_categorical_CSPs.html">
+      PH & ω-categorical CSPs
+      <span class="date">(2026-04-21)</span>
+    </a>
+
+    <a href="/reports/26_04_21_symmetric_pairs_binary_matroids.html">
+      symmetric pairs & binary matroids
+      <span class="date">(2026-04-21)</span>
+    </a>
+
+  </div>
+
 <script>
   const url = window.location.origin;
 
@@ -147,5 +216,6 @@
     "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
     encodeURIComponent(url);
 </script>
+
 </body>
 </html>
